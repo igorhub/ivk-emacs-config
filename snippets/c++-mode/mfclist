@@ -1,0 +1,6 @@
+POSITION pos = (${1:lst}).GetHeadPosition();
+while(pos != nullptr)
+{
+	auto& it = $1.GetNext(pos);
+    $0
+}

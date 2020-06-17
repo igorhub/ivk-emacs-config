@@ -1,0 +1,9 @@
+# piece of shit
+# --
+const bool considerEmptySegments = true;
+CIteratorSeg it(${1:&poly}, ORD_FORWARD, considerEmptySegments);
+while(it())
+{
+	PSEG s = it.GetCurrent();
+	$0
+}

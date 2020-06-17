@@ -1,0 +1,5 @@
+# name: for(auto it = begin(v), e = end(v) ...
+# key: for
+# --
+for(auto it = begin(${1:v}), e = end($1); it != e; ++it)
+$0

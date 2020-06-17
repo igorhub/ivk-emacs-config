@@ -1,0 +1,4 @@
+# name: begin(v), end(v)
+# key: be
+# --
+begin(${1:v}), end($1)

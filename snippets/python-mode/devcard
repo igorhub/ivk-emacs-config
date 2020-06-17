@@ -1,0 +1,2 @@
+def devcard_Whatever(c: pydevcards.Devcard):
+    c.m('...')

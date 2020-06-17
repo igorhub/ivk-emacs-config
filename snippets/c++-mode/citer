@@ -1,0 +1,8 @@
+# piece of shit
+# --
+CIteratorSeg it(${1:&poly}, ORD_FORWARD);
+while(it())
+{
+	PSEG s = it.GetCurrent();
+	$0
+}

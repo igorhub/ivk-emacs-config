@@ -1,0 +1,6 @@
+# dc-globals
+def devcard_Globals(c: pydevcards.Devcard):
+    c.content = []
+    gs = ", ".join((f"`"\\`{k}\\`"`" for k in S.keys()))
+    if gs:
+        c.r("Globals: " + gs)

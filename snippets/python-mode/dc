@@ -1,0 +1,4 @@
+# dc
+from pydevcards import global_devcard as C
+from pydevcards import global_state as S
+from pprint import pprint, pp, pformat

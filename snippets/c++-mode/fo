@@ -1,0 +1,5 @@
+# name: fo
+# key: fo
+# --
+for(auto it = begin(${1:v}), e = end($1); it != e; ++it)
+$0
