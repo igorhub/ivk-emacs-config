@@ -14,4 +14,15 @@
     (start-process "whatever" nil "bash" "-c" (concat cmd1 "&&" cmd2 "&&" cmd3 "&&" cmd4 "&&" cmd5 "&&" cmd6))))
 
 
+(defun ivk/tmux-new-window ()
+  "Open a new tmux window and cd into the current directory."
+  (interactive)
+  (start-process "whatever" nil "bash" "-c"
+                 (concat "cd /tmp"
+                         "&& tmux new-window -t main"
+                         "&& tmux send-keys -t main 'cd \"" default-directory "\"' C-m"
+                         "&& tmux send-keys -t main 'ls -alh' C-m"
+                         "&& wmctrl -s 2")))
+
+
 ;;; ivk-tmux.el ends here
