@@ -3,7 +3,7 @@
 
 
 (defun ivk/current-line ()
-  "Return current line number (starts with 1)"
+  "Return current line number (starting with 1)."
   (string-to-number (format-mode-line "%l")))
 
 
