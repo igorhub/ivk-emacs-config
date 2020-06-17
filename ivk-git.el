@@ -1,7 +1,7 @@
 (provide 'ivk-git)
 
 
-(defun gd ()
+(defun ivk/gd ()
   "Git diff."
   (interactive)
   (when (get-buffer ".gitdiff.diff")
