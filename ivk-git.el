@@ -11,4 +11,10 @@
   (goto-char (point-min)))
 
 
+(defun ivk/show-lazygit ()
+  "Show lazygit window."
+  (interactive)
+  (start-process "whatever" nil "show-lazygit.sh" (file-name-directory (buffer-file-name))))
+
+
 ;;; ivk-git.el ends here
