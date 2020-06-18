@@ -1,3 +1,3 @@
-`(ivk/note-create-title-line--dated)` $0
+`(ivk.notes/create-title-line-dated)` $0
 
 Topics:: {t/todo}

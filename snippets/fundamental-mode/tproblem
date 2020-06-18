@@ -1,4 +1,4 @@
-`(ivk/note-create-title-line)` ☐ Problem: $1
+`(ivk.notes/create-title-line)` ☐ Problem: $1
 
 Problem::
 $0

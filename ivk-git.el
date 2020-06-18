@@ -1,7 +1,7 @@
 (provide 'ivk-git)
 
 
-(defun ivk/gd ()
+(defun ivk.git/gd ()
   "Git diff."
   (interactive)
   (when (get-buffer ".gitdiff.diff")
@@ -11,7 +11,7 @@
   (goto-char (point-min)))
 
 
-(defun ivk/show-lazygit ()
+(defun ivk.git/show-lazygit ()
   "Show lazygit window."
   (interactive)
   (start-process "whatever" nil "show-lazygit.sh" (file-name-directory (buffer-file-name))))

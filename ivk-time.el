@@ -1,18 +1,18 @@
 (provide 'ivk-time)
 
 
-(defun ivk/time-string (date)
+(defun ivk.time/time-string (date)
   "Return time of `DATE', formatted as HH:MM."
   (format "%02d:%02d" (car (cddr date)) (cadr date)))
 
 
-(defun ivk/date-string (date)
+(defun ivk.time/date-string (date)
   "Return date of `DATE', formatted as YYYY-MM-DD."
   (let ((d (cdr (cddr date))))
     (format "%d-%02d-%02d" (car (cddr d)) (cadr d) (car d))))
 
 
-(defun ivk/day-of-week (date)
+(defun ivk.time/day-of-week (date)
   "Return abbreviated (3 letters) day of week of `DATE'."
   (case (nth 6 (decode-time))
     (0 "sun")

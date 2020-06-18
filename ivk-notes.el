@@ -5,29 +5,29 @@
 (require 'dash)
 
 
-(defun ivk/note-create-id ()
+(defun ivk.notes/create-id ()
   "Call 'notes-create-id', return the result."
   (s-trim
    (shell-command-to-string
     (concat "notes-create-id --notes-file " (buffer-file-name)))))
 
 
-(defun ivk/note-create-title-line ()
+(defun ivk.notes/create-title-line ()
   "Create new note id, return its title line."
   (format "== [%s]"
-          (ivk/note-create-id)))
+          (ivk.notes/create-id)))
 
 
-(defun ivk/note-create-title-line--dated ()
+(defun ivk.notes/create-title-line-dated ()
   "Create new note id, return its title line (with current date and day of week)."
   (let* ((now (decode-time))
-         (date (ivk/date-string now))
-         (id (ivk/note-create-id)))
+         (date (ivk.time/date-string now))
+         (id (ivk.notes/create-id)))
     (format "== [%s] %s, %s."
-            id date (ivk/day-of-week now))))
+            id date (ivk.time/day-of-week now))))
 
 
-(defun ivk/note-get-id ()
+(defun ivk.notes/get-id ()
   "Return an id of the note at point."
   (save-excursion
     (search-backward "== [")
@@ -36,23 +36,23 @@
       (substring-no-properties (cadr m)))))
 
 
-(defun ivk/note-make-link-short ()
+(defun ivk.notes/make-link-short ()
   "Copy the link to the note at point in 'short' format.
 Example: link:200617j.html[]."
   (interactive)
-  (let ((id (ivk/note-get-id)))
+  (let ((id (ivk.notes/get-id)))
     (kill-new (s-concat "link:" id ".html[]"))))
 
 
-(defun ivk/note-make-link-mini ()
+(defun ivk.notes/make-link-mini ()
   "Copy the link to the note at point in 'mini' format.
 Example: {200617j}."
   (interactive)
-  (let ((id (ivk/note-get-id)))
+  (let ((id (ivk.notes/get-id)))
     (kill-new (s-concat "{" id "}"))))
 
 
-(defun ivk/note-headlines ()
+(defun ivk.notes/headlines ()
   "Open a temporary buffer with the headlines of the current notes document."
   (interactive)
   (let* ((buf (buffer-substring-no-properties 1 (point-max)))

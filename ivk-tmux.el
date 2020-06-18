@@ -1,7 +1,7 @@
 (provide 'ivk-tmux)
 
 
-(defun ivk/tmux-ranger-push ()
+(defun ivk.tmux/ranger-push ()
   "Open current directory in ranger (in tmux session main:rgr)."
   (interactive)
   (let* ((dir default-directory)
@@ -14,7 +14,7 @@
     (start-process "whatever" nil "bash" "-c" (concat cmd1 "&&" cmd2 "&&" cmd3 "&&" cmd4 "&&" cmd5 "&&" cmd6))))
 
 
-(defun ivk/tmux-new-window ()
+(defun ivk.tmux/new-window ()
   "Open a new tmux window and cd into the current directory."
   (interactive)
   (start-process "whatever" nil "bash" "-c"
