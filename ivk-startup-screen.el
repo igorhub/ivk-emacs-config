@@ -8,6 +8,7 @@
   (when (file-exists-p "~/.greetings")
     (insert-file-contents "~/.greetings"))
   (goto-char (point-max))
+  (insert "\n")
   (insert (shell-command-to-string "notes-display"))
   (goto-char (point-min))
   (forward-paragraph 2))
