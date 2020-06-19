@@ -1,6 +1,7 @@
 (provide 'ivk-save)
 (require 'ivk-save-asciidoc)
 (require 'ivk-save-babashka)
+(require 'ivk-save-python)
 
 
 (defun ivk.save/update-emacshelper ()
@@ -9,7 +10,9 @@
     (cond ((s-suffix? ".adoc" fname)
            (ivk.save/on-save-asciidoc))
           ((s-suffix? ".bb.clj" fname)
-           (ivk.save/on-save-babashka)))))
+           (ivk.save/on-save-babashka))
+          ((s-suffix? ".py" fname)
+           (ivk.save/on-save-python)))))
 
 
 (defun ivk/save-buffer ()
