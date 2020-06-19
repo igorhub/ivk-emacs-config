@@ -8,5 +8,6 @@
 (require 'ivk-time)
 (require 'ivk-tmux)
 (require 'ivk-util)
+(require 'ivk-ydl)
 
 ;;; ivk.el ends here
