@@ -36,8 +36,7 @@ like not reloding modules even when they are changed."
     (kill-buffer "*Python*"))
   (pyvenv-activate (ivk.python/find-current-venv (buffer-file-name)))
   (let ((default-directory (concat default-directory "../")))
-    (message default-directory)
-    (+python/open-repl)))
+    (run-python)))
 
 
 ;;; ivk-python.el ends here
