@@ -1,6 +1,7 @@
 (provide 'ivk)
 
 (require 'ivk-basic)
+(require 'ivk-clojure)
 (require 'ivk-git)
 (require 'ivk-notes)
 (require 'ivk-save)
