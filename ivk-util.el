@@ -14,6 +14,15 @@
   (switch-to-buffer buffer-name))
 
 
+(defun ivk/create-temporary-buffer-from-file (path)
+  "Create a temporary buffer with the contents of file at `PATH'."
+  (find-file path)
+  (copy-region-as-kill 1 (point-max))
+  (kill-buffer)
+  (ivk/clear-buffer-and-switch "*temporary buffer*")
+  (yank))
+
+
 (defun ivk/local-repo? ()
   "Return 't if ivk-emacs-config is loaded manually by altering `load-path'."
   (s-suffix? "ivk.el" (locate-library "ivk")))
