@@ -9,10 +9,17 @@
   (recenter-top-bottom -1))
 
 
+;; Dirty.
+(defun --current-window-enlargen? ()
+  "Return 't, if the current window has been enlargen by `doom/window-enlargen'."
+  (> (window-total-height) 20))
+
+
 (defun ivk.clojure/unrepl ()
   "Switch from REPL buffer back to source."
   (interactive)
-  (doom/window-enlargen)
+  (when (--current-window-enlargen?)
+    (doom/window-enlargen))
   (evil-window-next nil))
 
 
