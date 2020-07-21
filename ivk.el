@@ -4,6 +4,7 @@
 (require 'ivk-clojure)
 (require 'ivk-git)
 (require 'ivk-notes)
+(require 'ivk-ru-dvorak)
 (require 'ivk-save)
 (require 'ivk-startup-screen)
 (require 'ivk-time)
