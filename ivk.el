@@ -12,4 +12,8 @@
 (require 'ivk-util)
 (require 'ivk-ydl)
 
+(defun ivk/dark-mode ()
+  (interactive)
+  (load-theme 'tsdh-dark))
+
 ;;; ivk.el ends here
