@@ -27,6 +27,12 @@
             id date (ivk.time/day-of-week now))))
 
 
+(defun ivk.notes/create-title-line-uuid ()
+  "Create new note id (with `uuidgen'), return its title line."
+  (format "== [%s]"
+          (s-trim (shell-command-to-string "uuidgen"))))
+
+
 (defun ivk.notes/get-id ()
   "Return an id of the note at point."
   (save-excursion
