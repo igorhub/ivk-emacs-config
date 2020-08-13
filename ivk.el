@@ -12,8 +12,12 @@
 (require 'ivk-util)
 (require 'ivk-ydl)
 
+
 (defun ivk/dark-mode ()
+  "Switch to dark mode."
   (interactive)
-  (load-theme 'tsdh-dark))
+  (load-theme 'tsdh-dark)
+  (setenv "IVK_DARKNESS" "YES"))
+
 
 ;;; ivk.el ends here
