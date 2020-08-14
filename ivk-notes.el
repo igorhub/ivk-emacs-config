@@ -3,13 +3,17 @@
 (require 'ivk-util)
 (require 's)
 (require 'dash)
+(require 'cl)
 
 
 (defun ivk.notes/create-id ()
   "Call 'notes-create-id', return the result."
+  (assert (getenv "IVK_NOTES_IDS_FILE"))
   (s-trim
    (shell-command-to-string
-    (concat "notes-create-id --notes-file " (buffer-file-name)))))
+    (concat "notes-create-id.bb.clj"
+            " --state-file " (getenv "IVK_NOTES_IDS_FILE")
+            " --notes-file " (buffer-file-name)))))
 
 
 (defun ivk.notes/create-title-line ()
