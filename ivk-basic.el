@@ -2,6 +2,13 @@
 (provide 'ivk-basic)
 
 
+(defun ivk/copy-buffer-file-name ()
+  "Copy the file name of the current buffer to clipboard."
+  (interactive)
+  (kill-new buffer-file-name)
+  (message buffer-file-name))
+
+
 (defun ivk/switch-to-previous-buffer ()
   "Switch to previous buffer.
 
