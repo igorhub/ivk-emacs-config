@@ -1,4 +1,4 @@
-(provide 'ivk-save-asciidoc)
+(provide 'ivk-save-notes-file)
 (require 'ivk-util)
 
 
@@ -7,7 +7,7 @@
   (let ((path (buffer-file-name))
         (line (int-to-string (- (ivk/current-line) 1))))
     (start-process "whatever" nil
-                   "on-save-adoc.sh" path line)))
+                   "on-save-adoc.bb.clj" path line)))
 
 
-;;; ivk-save-asciidoc.el ends here
+;;; ivk-save-notes-file.el ends here

@@ -1,5 +1,6 @@
 (provide 'ivk-save)
-(require 'ivk-save-asciidoc)
+(require 'ivk-notes)
+(require 'ivk-save-notes-file)
 (require 'ivk-save-babashka)
 (require 'ivk-save-python)
 
@@ -7,7 +8,7 @@
 (defun ivk.save/update-emacshelper ()
   "Update emacshelper after saving a file."
   (let ((fname (buffer-file-name)))
-    (cond ((s-suffix? ".adoc" fname)
+    (cond ((and (s-suffix? ".adoc" fname) (ivk.notes/notes-file?))
            (ivk.save/on-save-asciidoc))
           ((s-suffix? ".bb.clj" fname)
            (ivk.save/on-save-babashka))

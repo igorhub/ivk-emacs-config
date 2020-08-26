@@ -51,7 +51,7 @@
 Example: link:200617j.html[]."
   (interactive)
   (let ((id (ivk.notes/get-id)))
-    (kill-new (s-concat "link:" id ".html[]"))))
+    (kill-new (s-concat "link:" id "[]"))))
 
 
 (defun ivk.notes/make-link-mini ()
@@ -59,7 +59,7 @@ Example: link:200617j.html[]."
 Example: {200617j}."
   (interactive)
   (let ((id (ivk.notes/get-id)))
-    (kill-new (s-concat "{" id "}"))))
+    (kill-new (s-concat "{r/" id "}"))))
 
 
 (defun ivk.notes/headlines ()
@@ -71,6 +71,20 @@ Example: {200617j}."
     (ivk/clear-buffer-and-switch "*headlines*")
     (insert (s-join "\n" headlines))
     (insert "\n")))
+
+
+(defun ivk.notes/read-current-file ()
+  "Send command to the server to read the current file."
+  (interactive)
+  (call-process "notes-read-file.bb.clj" nil nil nil buffer-file-name))
+
+
+(defun ivk.notes/notes-file? ()
+  "Return 't if a file in current buffer is a notes file."
+  (save-excursion
+    (beginning-of-buffer)
+    (search-forward-regexp "^== \\[[0-9a-z.-]+\\]" nil 't)
+    (not (= (point) 1))))
 
 
 ;;; ivk-notes.el ends here
