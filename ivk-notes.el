@@ -38,28 +38,49 @@
 
 
 (defun ivk.notes/get-id ()
-  "Return an id of the note at point."
+  "Return the id of the note at point."
   (save-excursion
     (search-backward "== [")
     (let* ((line (thing-at-point 'line))
-           (m (s-match "== \\[\\(.*\\)\\]" line)))
+           (m (s-match "== \\[\\([0-9a-zA-Z.-]+\\)\\]" line)))
       (substring-no-properties (cadr m)))))
 
 
-(defun ivk.notes/make-link-short ()
+(defun ivk.notes/get-title ()
+  "Return the title of the note at point."
+  (save-excursion
+    (search-backward "== [")
+    (let* ((line (thing-at-point 'line))
+           (m (s-match "== \\[[0-9a-zA-Z.-]+\\] *\\(.*\\)" line)))
+      (substring-no-properties (cadr m)))))
+
+
+(defun ivk.notes/make-link-old-fashioned ()
   "Copy the link to the note at point in 'short' format.
 Example: link:200617j[]."
   (interactive)
-  (let ((id (ivk.notes/get-id)))
-    (kill-new (s-concat "link:" id "[]"))))
+  (kill-new (format "link:%s[]" (ivk.notes/get-id))))
 
 
-(defun ivk.notes/make-link-mini ()
+(defun ivk.notes/make-link-short ()
   "Copy the link to the note at point in 'mini' format.
 Example: {r/200617j}."
   (interactive)
-  (let ((id (ivk.notes/get-id)))
-    (kill-new (s-concat "{r/" id "}"))))
+  (kill-new (format "{r/%s}" (ivk.notes/get-id))))
+
+
+(defun ivk.notes/make-link-textless ()
+  "Copy the link to the note at point in 'mini' format.
+Example: {r/200617j \"\"}."
+  (interactive)
+  (kill-new (format "{r/%s \"\"}" (ivk.notes/get-id))))
+
+
+(defun ivk.notes/make-link-full ()
+  "Copy the link to the note at point in 'mini' format.
+Example: {r/200617j \"Whatever\"}."
+  (interactive)
+  (kill-new (format "{r/%s \"%s\"}" (ivk.notes/get-id) (ivk.notes/get-title))))
 
 
 (defun ivk.notes/headlines ()
