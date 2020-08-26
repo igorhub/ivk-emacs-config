@@ -48,7 +48,7 @@
 
 (defun ivk.notes/make-link-short ()
   "Copy the link to the note at point in 'short' format.
-Example: link:200617j.html[]."
+Example: link:200617j[]."
   (interactive)
   (let ((id (ivk.notes/get-id)))
     (kill-new (s-concat "link:" id "[]"))))
@@ -56,7 +56,7 @@ Example: link:200617j.html[]."
 
 (defun ivk.notes/make-link-mini ()
   "Copy the link to the note at point in 'mini' format.
-Example: {200617j}."
+Example: {r/200617j}."
   (interactive)
   (let ((id (ivk.notes/get-id)))
     (kill-new (s-concat "{r/" id "}"))))
