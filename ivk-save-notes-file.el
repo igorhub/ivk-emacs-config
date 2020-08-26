@@ -7,7 +7,7 @@
   (let ((path (buffer-file-name))
         (line (int-to-string (- (ivk/current-line) 1))))
     (start-process "whatever" nil
-                   "on-save-adoc.bb.clj" path line)))
+                   "on-save-notes-file.bb.clj" path line)))
 
 
 ;;; ivk-save-notes-file.el ends here
