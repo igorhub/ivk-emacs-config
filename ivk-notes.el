@@ -83,6 +83,41 @@ Example: {r/200617j \"Whatever\"}."
   (kill-new (format "{r/%s \"%s\"}" (ivk.notes/get-id) (ivk.notes/get-title))))
 
 
+(defun ivk.notes/lookup ()
+  "Lookup a note with rxvt/fzf."
+  (s-trim
+   (shell-command-to-string "notes-lookup.bb.clj --print")))
+
+
+(defun ivk.notes/open-in-emacshelper (id)
+  "Open note ID in emacshelper."
+  (call-process "notes-open.bb.clj" nil nil nil
+                "--browser" "emacshelper"
+                "--id" id))
+
+
+(defun ivk.notes/insert-id ()
+  "Lookup a note, insert its id, and open it in emacshelper."
+  (interactive)
+  (let ((id (ivk.notes/lookup)))
+    (insert id)
+    (ivk.notes/open-in-emacshelper id)))
+
+
+(defun ivk.notes/insert-reference ()
+  "Lookup a note, insert its reference, and open it in emacshelper."
+  (interactive)
+  (let ((id (ivk.notes/lookup))
+        (beg (region-beginning))
+        (end (region-end)))
+    (when (region-active-p) (goto-char beg))
+    (insert (concat "{r/" id " "))
+    (when (region-active-p) (goto-char (+ end 4 (length id))))
+    (insert "}")
+    (backward-char)
+    (ivk.notes/open-in-emacshelper id)))
+
+
 (defun ivk.notes/headlines ()
   "Open a temporary buffer with the headlines of the current notes document."
   (interactive)
