@@ -103,7 +103,7 @@ Example: {r/200617j \"Whatever\"}."
 (defun ivk.notes/notes-file? ()
   "Return 't if a file in current buffer is a notes file."
   (save-excursion
-    (beginning-of-buffer)
+    (goto-char (point-min))
     (search-forward-regexp "^== \\[[0-9a-z.-]+\\]" nil 't)
     (not (= (point) 1))))
 
