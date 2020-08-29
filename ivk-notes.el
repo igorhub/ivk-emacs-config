@@ -33,8 +33,8 @@
 
 (defun ivk.notes/create-title-line-uuid ()
   "Create new note id (with `uuidgen'), return its title line."
-  (format "== [%s]"
-          (s-trim (shell-command-to-string "uuidgen"))))
+  (format "== [n%s]"
+          (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen")))))
 
 
 (defun ivk.notes/get-id ()
