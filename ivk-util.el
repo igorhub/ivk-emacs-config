@@ -11,7 +11,8 @@
   "Create a buffer called `BUFFER-NAME' (or clear it if it exists) and switch."
   (when (get-buffer buffer-name)
     (kill-buffer buffer-name))
-  (switch-to-buffer buffer-name))
+  (switch-to-buffer buffer-name)
+  (text-mode))
 
 
 (defun ivk/create-temporary-buffer-from-file (path)
