@@ -55,6 +55,13 @@
       (substring-no-properties (cadr m)))))
 
 
+(defun ivk.notes/copy-id ()
+  "Copy the id of the note at point.
+Example: link:200617j[]."
+  (interactive)
+  (kill-new (ivk.notes/get-id)))
+
+
 (defun ivk.notes/make-link-old-fashioned ()
   "Copy the link to the note at point in 'short' format.
 Example: link:200617j[]."
