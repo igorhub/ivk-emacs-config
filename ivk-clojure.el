@@ -1,26 +1,25 @@
 (provide 'ivk-clojure)
 
 
+(defun ivk.clojure/find-repl-buffer ()
+  "Find the REPL buffer."
+  (car
+    (-filter (lambda (buffer)
+               (eq (with-current-buffer buffer major-mode)
+                   'cider-repl-mode))
+             (buffer-list))))
+
+
 (defun ivk.clojure/repl ()
-  "Switch to REPL buffer and enlargen it."
+  "Switch to REPL buffer."
   (interactive)
-  (evil-window-next nil)
-  (doom/window-enlargen)
-  (recenter-top-bottom -1))
-
-
-;; Dirty.
-(defun --current-window-enlargen? ()
-  "Return 't, if the current window has been enlargen by `doom/window-enlargen'."
-  (> (window-total-height) 20))
+  (switch-to-buffer (ivk.clojure/find-repl-buffer)))
 
 
 (defun ivk.clojure/unrepl ()
   "Switch from REPL buffer back to source."
   (interactive)
-  (when (--current-window-enlargen?)
-    (doom/window-enlargen))
-  (evil-window-next nil))
+  (switch-to-buffer (other-buffer)))
 
 
 ;;; ivk-clojure.el ends here
