@@ -35,7 +35,7 @@
   "Create new note id (with `uuidgen'), return its title line."
   (let* ((now (decode-time))
          (date (ivk.time/date-string now))
-         (id (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen")))))
+         (id (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen"))))))
     (format "== [%s] %s, %s."
             id date (ivk.time/day-of-week now))))
 
