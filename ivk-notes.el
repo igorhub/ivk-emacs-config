@@ -133,7 +133,7 @@ Example: {r/200617j \"Whatever\"}."
   (interactive)
   (let* ((buf (buffer-substring-no-properties 1 (point-max)))
          (lines (s-split "\n" buf))
-         (headlines (-filter (lambda (s) (s-starts-with? "==" s)) lines)))
+         (headlines (-filter (lambda (s) (s-starts-with? "== [" s)) lines)))
     (ivk/clear-buffer-and-switch "*headlines*")
     (insert (s-join "\n" headlines))
     (insert "\n")))
