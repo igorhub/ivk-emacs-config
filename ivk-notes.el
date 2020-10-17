@@ -36,8 +36,7 @@
   (let* ((now (decode-time))
          (date (ivk.time/date-string now))
          (id (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen"))))))
-    (format "== [%s] %s, %s."
-            id date (ivk.time/day-of-week now))))
+    (format "== [%s]" id)))
 
 
 (defun ivk.notes/get-id ()
