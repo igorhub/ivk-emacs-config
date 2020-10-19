@@ -3,7 +3,7 @@
 
 
 //==============================================================================
-`(ivk.notes/create-title-line-uuid)` ? day
+`(ivk.notes/create-title-line-uuid-dated)` ? day
 
 {e/summary placeholder.jpg}
 
@@ -15,6 +15,10 @@ Notes::
 
 - ...
 
+
+Eng::
+
+- ...
 
 
 Topics:: {r/day}
