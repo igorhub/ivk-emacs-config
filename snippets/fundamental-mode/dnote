@@ -3,9 +3,9 @@
 
 
 //==============================================================================
-`(ivk.notes/create-title-line-uuid-dated)` ? day
+`(ivk.notes/create-title-line-dated)` ? day
 
-{e/summary placeholder.jpg}
+{e/summary placeholder}
 
 $0
 
