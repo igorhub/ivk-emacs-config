@@ -38,15 +38,4 @@ If not, comment/uncomment the current line."
       (find-file file-name))))
 
 
-(defun ivk/slurp (f)
-  "Slurp a file F.
-
-Copied from https://stackoverflow.com/questions/20747190/read-from-a-file-into-a-emacs-lisp-list"
-  (with-temp-buffer
-    (insert-file-contents f)
-    (buffer-substring-no-properties
-     (point-min)
-     (point-max))))
-
-
 ;;; ivk-basic.el ends here

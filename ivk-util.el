@@ -15,6 +15,17 @@
   (text-mode))
 
 
+(defun ivk/slurp (f)
+  "Slurp a file F.
+
+Copied from https://stackoverflow.com/questions/20747190/read-from-a-file-into-a-emacs-lisp-list"
+  (with-temp-buffer
+    (insert-file-contents f)
+    (buffer-substring-no-properties
+     (point-min)
+     (point-max))))
+
+
 (defun ivk/create-temporary-buffer-from-file (path)
   "Create a temporary buffer with the contents of file at `PATH'."
   (find-file path)
