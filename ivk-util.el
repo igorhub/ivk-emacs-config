@@ -7,6 +7,11 @@
   (string-to-number (format-mode-line "%l")))
 
 
+(defun ivk/line-at-point ()
+  "Copy the file name of the current buffer to clipboard."
+  (s-trim (substring-no-properties (thing-at-point 'line))))
+
+
 (defun ivk/clear-buffer-and-switch (buffer-name)
   "Create a buffer called `BUFFER-NAME' (or clear it if it exists) and switch."
   (when (get-buffer buffer-name)
