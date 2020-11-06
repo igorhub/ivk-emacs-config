@@ -10,6 +10,8 @@
   (let ((fname (buffer-file-name)))
     (cond ((and (s-suffix? ".adoc" fname) (ivk.notes/notes-file?))
            (ivk.save/on-save-asciidoc))
+          ((or (s-suffix? ".tv5" fname) (s-suffix? ".tvv" fname))
+           (ivk.save/on-save-tv5))
           ((s-suffix? ".bb.clj" fname)
            (ivk.save/on-save-babashka))
           ((s-suffix? ".py" fname)
