@@ -16,6 +16,11 @@
             " --notes-file " (buffer-file-name)))))
 
 
+(defun ivk.notes/uuid-based-id ()
+  "Create new note id (with `uuidgen')."
+  (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen")))))
+
+
 (defun ivk.notes/create-title-line ()
   "Create new note id, return its title line."
   (format "== [%s]"
