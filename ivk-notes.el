@@ -6,6 +6,10 @@
 (require 'cl)
 
 
+(defvar ivk.notes/separator
+      ".===============================================================================")
+
+
 (defun ivk.notes/create-id ()
   "Call 'notes-create-id', return the result."
   (assert (getenv "IVK_NOTES_IDS_FILE"))
@@ -56,19 +60,19 @@
 (defun ivk.notes/get-id ()
   "Return the id of the note at point."
   (save-excursion
-    (search-backward "== [")
-    (let* ((line (thing-at-point 'line))
-           (m (s-match "== \\[\\([0-9a-zA-Z.-]+\\)\\]" line)))
-      (substring-no-properties (cadr m)))))
+    (search-backward ivk.notes/separator nil 't)
+    (when (s-equals? (ivk/line-at-point) ivk.notes/separator)
+      (forward-line)
+      (s-trim (substring-no-properties (thing-at-point 'line))))))
 
 
 (defun ivk.notes/get-title ()
   "Return the title of the note at point."
   (save-excursion
-    (search-backward "== [")
-    (let* ((line (thing-at-point 'line))
-           (m (s-match "== \\[[0-9a-zA-Z.-]+\\] *\\(.*\\)" line)))
-      (substring-no-properties (cadr m)))))
+    (search-backward ivk.notes/separator nil 't)
+    (when (s-equals? (ivk/line-at-point) ivk.notes/separator)
+      (forward-line 2)
+      (s-trim (substring-no-properties (thing-at-point 'line))))))
 
 
 (defun ivk.notes/copy-id ()
