@@ -2,24 +2,26 @@
 
 
 
-//==============================================================================
-`(ivk.notes/create-title-line-dated)` ? day
-
-{e/summary placeholder}
+.===============================================================================
+`(ivk.notes/create-id)`
+? day
+:date `(ivk.time/date-string (decode-time))`
+:summary-image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
 
 $0
 
 
-
-Notes::
-
-- ...
-
-
-Eng::
+.list
+:subtype :summary-notes
 
 - ...
 
 
-Topics:: {r/day}
-##refs ##
+.list
+:subtype :summary-eng
+
+- ...
+
+
+.topics
+day
