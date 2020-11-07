@@ -5,4 +5,4 @@
 .===============================================================================
 `(ivk.notes/uuid-based-id)`
 $0
-`(ivk.time/date-string (decode-time))`
+:date `(ivk.time/date-string (decode-time))`

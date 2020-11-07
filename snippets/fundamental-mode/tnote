@@ -5,7 +5,7 @@
 .===============================================================================
 `(ivk.notes/create-id)`
 $0
-`(ivk.time/date-string (decode-time))`
+:date `(ivk.time/date-string (decode-time))`
 
 .topics
 todo
