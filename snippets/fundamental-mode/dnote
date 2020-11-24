@@ -6,7 +6,7 @@
 `(ivk.notes/create-id)`
 ? day
 :date `(ivk.time/date-string (decode-time))`
-:summary-image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
+:image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
 
 $0
 
