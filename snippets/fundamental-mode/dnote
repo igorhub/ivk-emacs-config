@@ -4,7 +4,7 @@
 
 .===============================================================================
 `(ivk.notes/create-id)`
-? day
+Untitled day
 :date `(ivk.time/date-string (decode-time))`
 :image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
 
@@ -13,6 +13,16 @@ $0
 
 .list
 :subtype :summary-notes
+- ...
+
+
+.list
+:subtype :summary-consume
+- ...
+
+
+.list
+:subtype :summary-consume-more
 - ...
 
 
