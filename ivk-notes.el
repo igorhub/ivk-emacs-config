@@ -157,7 +157,9 @@ Example: {r/200617j \"Whatever\"}."
 
 
 (defun ivk.notes/read-current-file ()
-  "Send command to the server to read the current file."
+  "DEPRECATED.
+
+Send command to the server to read the current file."
   (interactive)
   (call-process "notes-read-file.bb.clj" nil nil nil (buffer-file-name)))
 
