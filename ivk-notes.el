@@ -148,12 +148,11 @@ Example: {r/200617j \"Whatever\"}."
 (defun ivk.notes/headlines ()
   "Open a temporary buffer with the headlines of the current notes document."
   (interactive)
-  (let* ((buf (buffer-substring-no-properties 1 (point-max)))
-         (lines (s-split "\n" buf))
-         (headlines (-filter (lambda (s) (s-starts-with? "== [" s)) lines)))
+  (let ((headlines (shell-command-to-string
+                    (concat "/home/ivk/bin/more/headlines.bb.clj "
+                            (buffer-file-name)))))
     (ivk/clear-buffer-and-switch "*headlines*")
-    (insert (s-join "\n" headlines))
-    (insert "\n")))
+    (insert headlines)))
 
 
 (defun ivk.notes/read-current-file ()
