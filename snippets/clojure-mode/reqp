@@ -1,1 +1,1 @@
-(require '[clojure.pprint :refer [pp pprint]])
+(require '[clojure.pprint :refer [pprint]])

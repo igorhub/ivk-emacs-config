@@ -8,12 +8,9 @@ Untitled day
 :date `(ivk.time/date-string (decode-time))`
 :image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
 
-$0
 
-
-.list
-:subtype :summary-notes
-- ...
+.pp
+...
 
 
 .list
@@ -22,13 +19,22 @@ $0
 
 
 .list
-:subtype :summary-consume-more
+:subtype :summary-eng
 - ...
 
 
 .list
-:subtype :summary-eng
+:subtype :summary-notes
 - ...
+
+
+.list
+:subtype :summary-consume-more
+- ...
+
+
+.pp
+$0
 
 
 .topics
