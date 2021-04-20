@@ -57,6 +57,14 @@
             id date (ivk.time/day-of-week now))))
 
 
+(defun ivk.notes/create-pt-ticket ()
+  "Run `create-pt-ticket.bb.clj' on the current file."
+  (interactive)
+  (save-buffer)
+  (call-process "create-pt-ticket.bb.clj" nil nil nil (buffer-name))
+  (revert-buffer))
+
+
 (defun ivk.notes/get-id ()
   "Return the id of the note at point."
   (save-excursion

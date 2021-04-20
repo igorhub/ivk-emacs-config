@@ -25,7 +25,7 @@
   (interactive)
   (let ((url (thing-at-point 'url 't)))
     (when url
-      (start-process "-" nil "qutebrowser" url))))
+      (start-process "-" nil "qutebrowser" "--basedir" "~/.config/qutebrowser-primary-ii" url))))
 
 
 ;;; ivk.el ends here
