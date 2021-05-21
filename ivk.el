@@ -3,6 +3,7 @@
 (require 'ivk-basic)
 (require 'ivk-clojure)
 (require 'ivk-git)
+(require 'ivk-ivy)
 (require 'ivk-notes)
 (require 'ivk-ru-dvorak)
 (require 'ivk-save)
@@ -25,7 +26,7 @@
   (interactive)
   (let ((url (thing-at-point 'url 't)))
     (when url
-      (start-process "-" nil "qutebrowser" "--basedir" "~/.config/qutebrowser-primary-ii" url))))
+      (start-process "-" nil "qutebrowser" "--basedir" "/home/ivk/.config/qutebrowser-primary-ii" url))))
 
 
 ;;; ivk.el ends here
