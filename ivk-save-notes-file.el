@@ -13,7 +13,7 @@
 (defun ivk.save/on-save-tv5 ()
   "Reaction on saving a notes file (tv5 format)."
   (start-process "whatever" nil
-                 "on-save-tv5.bb.clj" (buffer-file-name) (or (ivk.notes/get-id) "")))
+                 "notes" "on-save-file" (buffer-file-name) (or (ivk.notes/get-id) "")))
 
 
 ;;; ivk-save-notes-file.el ends here
