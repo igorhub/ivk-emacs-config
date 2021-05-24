@@ -126,7 +126,8 @@ Example: {r/200617j \"Whatever\"}."
 
 (defun ivk.notes/open-in-emacshelper (id)
   "Open note ID in emacshelper."
-  (call-process "notes open" nil nil nil
+  (call-process "notes" nil nil nil
+                "open"
                 "--browser" "emacshelper"
                 "--id" id))
 
@@ -161,14 +162,6 @@ Example: {r/200617j \"Whatever\"}."
                             (buffer-file-name)))))
     (ivk/clear-buffer-and-switch "*headlines*")
     (insert headlines)))
-
-
-(defun ivk.notes/read-current-file ()
-  "DEPRECATED.
-
-Send command to the server to read the current file."
-  (interactive)
-  (call-process "notes-read-file.bb.clj" nil nil nil (buffer-file-name)))
 
 
 (defun ivk.notes/notes-file? ()
