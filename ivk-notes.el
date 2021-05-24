@@ -15,7 +15,7 @@
   (assert (getenv "IVK_NOTES_IDS_FILE"))
   (s-trim
    (shell-command-to-string
-    (concat "notes-create-id.bb.clj"
+    (concat "notes" " generate-id"
             " --state-file " (getenv "IVK_NOTES_IDS_FILE")
             " --notes-file " (buffer-file-name)))))
 
@@ -121,12 +121,12 @@ Example: {r/200617j \"Whatever\"}."
 (defun ivk.notes/lookup ()
   "Lookup a note with rxvt/fzf."
   (s-trim
-   (shell-command-to-string "notes-lookup.bb.clj --print")))
+   (shell-command-to-string "notes lookup --print")))
 
 
 (defun ivk.notes/open-in-emacshelper (id)
   "Open note ID in emacshelper."
-  (call-process "notes-open.bb.clj" nil nil nil
+  (call-process "notes open" nil nil nil
                 "--browser" "emacshelper"
                 "--id" id))
 
