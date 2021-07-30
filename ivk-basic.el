@@ -38,4 +38,10 @@ If not, comment/uncomment the current line."
       (find-file file-name))))
 
 
+(defun ivk/insert-uuid ()
+  "Insert a UUID (generated with with `uuidgen')."
+  (interactive)
+  (insert (s-trim (shell-command-to-string "uuidgen"))))
+
+
 ;;; ivk-basic.el ends here
