@@ -52,4 +52,37 @@ If not, comment/uncomment the current line."
   (evil-insert 0))
 
 
+(defun ivk/enclose-in-parenthesis-and-enter-insert-mode ()
+  "Enclose the following sexp into parenthesis and enter evil's insert-mode."
+  (interactive)
+  (insert "()")
+  (backward-char)
+  (paredit-forward-slurp-sexp)
+  (insert " ")
+  (backward-char)
+  (evil-insert 0))
+
+
+(defun ivk/enclose-in-brackets-and-enter-insert-mode ()
+  "Enclose the following sexp into square brackets and enter evil's insert-mode."
+  (interactive)
+  (insert "[]")
+  (backward-char)
+  (paredit-forward-slurp-sexp)
+  (insert " ")
+  (backward-char)
+  (evil-insert 0))
+
+
+(defun ivk/enclose-in-braces-and-enter-insert-mode ()
+  "Enclose the following sexp into curly braces and enter evil's insert-mode."
+  (interactive)
+  (insert "{}")
+  (backward-char)
+  (paredit-forward-slurp-sexp)
+  (insert " ")
+  (backward-char)
+  (evil-insert 0))
+
+
 ;;; ivk-basic.el ends here
