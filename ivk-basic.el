@@ -44,4 +44,12 @@ If not, comment/uncomment the current line."
   (insert (s-trim (shell-command-to-string "uuidgen"))))
 
 
+(defun ivk/insert-space-and-enter-insert-mode ()
+  "Insert a SPACE and enter evil's insert-mode."
+  (interactive)
+  (insert " ")
+  (backward-char)
+  (evil-insert 0))
+
+
 ;;; ivk-basic.el ends here
