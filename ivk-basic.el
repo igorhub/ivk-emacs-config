@@ -38,6 +38,12 @@ If not, comment/uncomment the current line."
       (find-file file-name))))
 
 
+(defun ivk/insert-date ()
+  "Insert the current date."
+  (interactive)
+  (insert (ivk.time/date-string (decode-time))))
+
+
 (defun ivk/insert-uuid ()
   "Insert a UUID (generated with with `uuidgen')."
   (interactive)
