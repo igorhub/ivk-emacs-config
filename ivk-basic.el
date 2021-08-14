@@ -58,6 +58,30 @@ If not, comment/uncomment the current line."
   (evil-insert 0))
 
 
+(defun ivk/insert-parenthesis-and-enter-insert-mode ()
+  "Enclose the following sexp into parenthesis and enter evil's insert-mode."
+  (interactive)
+  (insert "()")
+  (backward-char)
+  (evil-insert 0))
+
+
+(defun ivk/insert-brackets-and-enter-insert-mode ()
+  "Enclose the following sexp into brackets and enter evil's insert-mode."
+  (interactive)
+  (insert "[]")
+  (backward-char)
+  (evil-insert 0))
+
+
+(defun ivk/insert-braces-and-enter-insert-mode ()
+  "Enclose the following sexp into braces and enter evil's insert-mode."
+  (interactive)
+  (insert "{}")
+  (backward-char)
+  (evil-insert 0))
+
+
 (defun ivk/enclose-in-parenthesis-and-enter-insert-mode ()
   "Enclose the following sexp into parenthesis and enter evil's insert-mode."
   (interactive)
