@@ -118,10 +118,13 @@ Example: {r/200617j \"Whatever\"}."
   (kill-new (format "{r/%s \"%s\"}" (ivk.notes/get-id) (ivk.notes/get-title))))
 
 
-(defun ivk.notes/lookup ()
-  "Lookup a note with rxvt/fzf."
+(defun ivk.notes/lookup (sort-by-date?)
+  "Lookup a note with rxvt/fzf.
+Could be sorted by date wint SORT-BY-DATE? argument."
   (s-trim
-   (shell-command-to-string "notes lookup --print")))
+   (shell-command-to-string (if sort-by-date?
+                                "notes lookup --print+"
+                              "notes lookup --print"))))
 
 
 (defun ivk.notes/open-in-emacshelper (id)
@@ -135,22 +138,16 @@ Example: {r/200617j \"Whatever\"}."
 (defun ivk.notes/insert-id ()
   "Lookup a note, insert its id, and open it in emacshelper."
   (interactive)
-  (let ((id (ivk.notes/lookup)))
+  (let ((id (ivk.notes/lookup nil)))
     (insert id)
     (ivk.notes/open-in-emacshelper id)))
 
 
-(defun ivk.notes/insert-reference ()
-  "Lookup a note, insert its reference, and open it in emacshelper."
+(defun ivk.notes/insert-id--sorted-by-date ()
+  "Lookup a note (sorted by date), insert its id, and open it in emacshelper."
   (interactive)
-  (let ((id (ivk.notes/lookup))
-        (beg (region-beginning))
-        (end (region-end)))
-    (when (region-active-p) (goto-char beg))
-    (insert (concat "{r/" id " "))
-    (when (region-active-p) (goto-char (+ end 4 (length id))))
-    (insert "}")
-    (backward-char)
+  (let ((id (ivk.notes/lookup 't)))
+    (insert id)
     (ivk.notes/open-in-emacshelper id)))
 
 
