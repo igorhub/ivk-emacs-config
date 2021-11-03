@@ -14,7 +14,7 @@
 (defun ivk.git/show-lazygit ()
   "Show lazygit window."
   (interactive)
-  (start-process "whatever" nil "show-lazygit.sh" (file-name-directory (buffer-file-name))))
+  (start-process "whatever" nil "progs" "show-lazygit" (file-name-directory (buffer-file-name))))
 
 
 ;;; ivk-git.el ends here
