@@ -56,4 +56,13 @@
     (ivk.clojure/switch-to-or-out-of-repl-window)))
 
 
+(defun ivk.clojure/zprint-function ()
+  "Format function at point."
+  (interactive)
+  (backward-paragraph)
+  (evil-visual-line)
+  (forward-paragraph)
+  (zprint))
+
+
 ;;; ivk-clojure.el ends here
