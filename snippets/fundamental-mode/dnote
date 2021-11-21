@@ -2,8 +2,7 @@
 
 
 
-.===============================================================================
-day`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+================================================================================ day`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
 Today
 :date `(ivk.time/date-string (decode-time))`
 :segment `(getenv "IVK_NOTES_CURRENT_SEGMENT")`
@@ -32,6 +31,8 @@ Today
 .pp
 $0
 
+
+.gras-cutoff
 
 .topics
 day

@@ -7,7 +7,7 @@
 
 
 (defvar ivk.notes/separator
-      ".===============================================================================")
+  "============================================================")
 
 
 (defun ivk.notes/create-id ()
@@ -69,18 +69,16 @@
   "Return the id of the note at point."
   (save-excursion
     (search-backward ivk.notes/separator nil 't)
-    (when (s-equals? (ivk/line-at-point) ivk.notes/separator)
-      (forward-line)
-      (s-trim (substring-no-properties (thing-at-point 'line))))))
+    (end-of-line)
+    (s-trim (substring-no-properties (thing-at-point 'symbol)))))
 
 
 (defun ivk.notes/get-title ()
   "Return the title of the note at point."
   (save-excursion
     (search-backward ivk.notes/separator nil 't)
-    (when (s-equals? (ivk/line-at-point) ivk.notes/separator)
-      (forward-line 2)
-      (s-trim (substring-no-properties (thing-at-point 'line))))))
+    (forward-line)
+    (s-trim (substring-no-properties (thing-at-point 'line)))))
 
 
 (defun ivk.notes/copy-id ()
