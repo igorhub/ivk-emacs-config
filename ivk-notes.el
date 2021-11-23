@@ -153,8 +153,7 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   "Open a temporary buffer with the headlines of the current notes document."
   (interactive)
   (let ((headlines (shell-command-to-string
-                    (concat "/home/ivk/bin/more/headlines.bb.clj "
-                            (buffer-file-name)))))
+                    (concat "notes headlines " (buffer-file-name)))))
     (ivk/clear-buffer-and-switch "*headlines*")
     (insert headlines)))
 
