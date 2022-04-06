@@ -166,4 +166,19 @@ Could be sorted by date wint SORT-BY-DATE? argument."
     (not (= (point) 1))))
 
 
+(defun ivk.notes/own ()
+  "Own the current note."
+  (interactive)
+  (let ((id (ivk.notes/get-id))
+        (buf (current-buffer)))
+    (save-excursion
+      (find-file "/home/ivk/MyNotes/tv5/journal/bullcrap22.tvv")
+      (goto-char (point-max))
+      (search-backward-regexp ":subtype :summary-notes" nil 't)
+      (forward-paragraph)
+      (insert "- $" id "\n")
+      (ivk/save-buffer)
+      (switch-to-buffer buf))))
+
+
 ;;; ivk-notes.el ends here
