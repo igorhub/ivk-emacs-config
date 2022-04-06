@@ -71,7 +71,8 @@
   (backward-paragraph)
   (evil-visual-line)
   (forward-paragraph)
-  (zprint))
+  (zprint)
+  (evil-exit-visual-state))
 
 
 ;;; ivk-clojure.el ends here
