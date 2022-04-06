@@ -31,6 +31,15 @@
     (when repl-buffer (get-buffer-window repl-buffer))))
 
 
+(defun ivk.clojure/clear-repl-buffer ()
+  "Find and clear the REPL buffer."
+  (interactive)
+  (let ((repl-buffer (ivk.clojure/find-repl-buffer)))
+    (when repl-buffer
+      (with-current-buffer repl-buffer
+        (cider-repl-clear-buffer)))))
+
+
 (defun ivk.clojure/show-repl ()
   "Split the window and open the CIDER REPL in the right pane."
   (interactive)
