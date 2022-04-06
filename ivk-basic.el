@@ -121,4 +121,11 @@ If not, comment/uncomment the current line."
   (setq fill-column 64))
 
 
+(defun ivk/goto-random-line ()
+  "Jump to a random line in the current buffer."
+  (interactive)
+  (let ((n (count-lines (point-min) (point-max))))
+    (goto-line (random n))))
+
+
 ;;; ivk-basic.el ends here
