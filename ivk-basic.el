@@ -125,7 +125,8 @@ If not, comment/uncomment the current line."
   "Jump to a random line in the current buffer."
   (interactive)
   (let ((n (count-lines (point-min) (point-max))))
-    (goto-line (random n))))
+    (goto-char (point-min))
+    (forward-line (random n))))
 
 
 ;;; ivk-basic.el ends here
