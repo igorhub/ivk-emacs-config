@@ -116,7 +116,7 @@ If not, comment/uncomment the current line."
 
 
 (defun ivk/set-fill-column-to-64 ()
-  "Set fill-column var to 64."
+  "Set 'fill-column' var to 64."
   (interactive)
   (setq fill-column 64))
 
