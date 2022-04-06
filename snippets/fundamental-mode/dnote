@@ -14,20 +14,20 @@ Today
 
 
 .list
-:subtype :summary-consume
-- ...
-
-
-.list
 :subtype :summary-eng
 - ...
 
 
 .list
-:subtype :summary-notes
+:subtype :summary-consume
 - ...
 
 
+.list
+:subtype :summary-notes
+- $win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+
+.line
 .pp
 $0
 
@@ -36,3 +36,17 @@ $0
 
 .topics
 day
+
+
+
+
+================================================================================ win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+Wild notes `(ivk.time/date-string (decode-time))`
+:date `(ivk.time/date-string (decode-time))`
+
+.list
+* ...
+
+
+.topics
+wild-notes
