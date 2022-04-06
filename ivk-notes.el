@@ -137,7 +137,7 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   "Lookup a note, insert its id, and open it in emacshelper."
   (interactive)
   (let ((id (ivk.notes/lookup nil)))
-    (insert id)
+    (insert (s-replace "." "/" id))
     (ivk.notes/open-in-emacshelper id)))
 
 
