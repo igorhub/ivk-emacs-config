@@ -1,3 +1,21 @@
 (require '[clojure.pprint :refer [pprint]])
+(def -locals)
+(defn myppfn [m]
+  (let [{:keys [form result locals]} m]
+    (println)
+    (pprint form)
+    (println "......=>")
+    (pprint result)
+    (println "......")
+    (pprint {:locals locals})
+    (def rr result)
+    (def -locals locals)))
+(defmacro dlo []
+  (cons \`do
+        (for [[k# v#] -locals]
+          (do
+            (println "(def" (symbol k#) v# ")")
+            `(def ~(symbol k#) ~v#)))))
 (use 'debux.core)
-(require 'hashp.core)
+(require '[sparkofreason.hashtag.core :as ht])
+(ht/defhashtag p myppfn :locals? true)

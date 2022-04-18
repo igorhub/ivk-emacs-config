@@ -13,6 +13,9 @@ Today
 ...
 
 
+.gras-cutoff
+
+
 .list
 :subtype :summary-eng
 - ...
@@ -31,8 +34,6 @@ Today
 .pp
 $0
 
-
-.gras-cutoff
 
 .topics
 day
