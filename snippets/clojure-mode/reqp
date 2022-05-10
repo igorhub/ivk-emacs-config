@@ -1,13 +1,14 @@
 (require '[clojure.pprint :refer [pprint]])
 (def -locals)
-(defn myppfn [m]
+(defn myppfn [pp-locals? m]
   (let [{:keys [form result locals]} m]
     (println)
     (pprint form)
     (println "......=>")
     (pprint result)
-    (println "......")
-    (pprint {:locals locals})
+    (when pp-locals?
+      (println "......")
+      (pprint {:locals locals}))
     (def rr result)
     (def -locals locals)))
 (defmacro dlo []
@@ -18,4 +19,5 @@
             `(def ~(symbol k#) ~v#)))))
 (use 'debux.core)
 (require '[sparkofreason.hashtag.core :as ht])
-(ht/defhashtag p myppfn :locals? true)
+(ht/defhashtag p  (partial myppfn false):locals? true)
+(ht/defhashtag p+ (partial myppfn true) :locals? true)

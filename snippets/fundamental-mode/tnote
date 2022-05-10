@@ -4,7 +4,7 @@
 
 ================================================================================ `(ivk.notes/create-id)`
 $0
-:date `(ivk.time/date-string (decode-time))`
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
 
 .topics
 todo

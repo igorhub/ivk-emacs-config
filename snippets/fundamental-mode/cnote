@@ -3,3 +3,4 @@
 
 
 ================================================================================ `(ivk.notes/create-id)`
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`

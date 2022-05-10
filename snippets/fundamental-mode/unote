@@ -2,4 +2,5 @@
 
 
 
-============================================================ `(ivk.notes/uuid-based-id)`
+================================================================================ `(ivk.notes/random-id)`
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
