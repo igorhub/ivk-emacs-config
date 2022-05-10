@@ -25,6 +25,11 @@
   (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen")))))
 
 
+(defun ivk.notes/random-id ()
+  "Create new random note id (with `uuidgen')."
+  (concat "x" (s-left 9 (s-replace "-" "" (shell-command-to-string "uuidgen --random")))))
+
+
 (defun ivk.notes/create-title-line ()
   "Create new note id, return its title line."
   (format "== [%s]"
