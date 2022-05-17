@@ -8,7 +8,7 @@
 (defun ivk.save/update-emacshelper ()
   "Update emacshelper after saving a file."
   (let ((fname (buffer-file-name)))
-    (cond ((and (s-suffix? ".adoc" fname) (ivk.notes/notes-file?))
+    (cond ((s-suffix? ".render.adoc" fname)
            (ivk.save/on-save-asciidoc))
           ((or (s-suffix? ".tv5" fname) (s-suffix? ".tvv" fname))
            (ivk.save/on-save-tv5))

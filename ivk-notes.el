@@ -163,14 +163,6 @@ Could be sorted by date wint SORT-BY-DATE? argument."
     (insert headlines)))
 
 
-(defun ivk.notes/notes-file? ()
-  "Return 't if a file in current buffer is a notes file."
-  (save-excursion
-    (goto-char (point-min))
-    (search-forward-regexp "^== \\[[0-9a-z.-]+\\]" nil 't)
-    (not (= (point) 1))))
-
-
 (defun ivk.notes/own ()
   "Own the current note."
   (interactive)
