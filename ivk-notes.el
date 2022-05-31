@@ -28,46 +28,6 @@
   (concat "x" (s-left 9 (s-replace "-" "" (shell-command-to-string "uuidgen --random")))))
 
 
-(defun ivk.notes/create-title-line ()
-  "Create new note id, return its title line."
-  (format "== [%s]"
-          (ivk.notes/create-id)))
-
-
-(defun ivk.notes/create-title-line-dated ()
-  "Create new note id, return its title line (with current date and day of week)."
-  (let* ((now (decode-time))
-         (date (ivk.time/date-string now))
-         (id (ivk.notes/create-id)))
-    (format "== [%s] %s, %s."
-            id date (ivk.time/day-of-week now))))
-
-
-(defun ivk.notes/create-title-line-uuid ()
-  "Create new note id (with `uuidgen'), return its title line."
-  (let* ((now (decode-time))
-         (date (ivk.time/date-string now))
-         (id (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen"))))))
-    (format "== [%s]" id)))
-
-
-(defun ivk.notes/create-title-line-uuid-dated ()
-  "Create new note id (with `uuidgen'), return its title line (with current date and day of week)."
-  (let* ((now (decode-time))
-         (date (ivk.time/date-string now))
-         (id (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen"))))))
-    (format "== [%s] %s, %s."
-            id date (ivk.time/day-of-week now))))
-
-
-(defun ivk.notes/create-pt-ticket ()
-  "Run `create-pt-ticket.bb.clj' on the current file."
-  (interactive)
-  (save-buffer)
-  (call-process "create-pt-ticket.bb.clj" nil nil nil (buffer-name))
-  (revert-buffer))
-
-
 (defun ivk.notes/get-id ()
   "Return the id of the note at point."
   (save-excursion
