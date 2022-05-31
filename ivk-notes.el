@@ -10,14 +10,12 @@
   "============================================================")
 
 
-(defun ivk.notes/create-id ()
-  "Call 'notes-create-id', return the result."
+(defun ivk.notes/create-id (size)
+  "Call 'notes generate-id `SIZE'', return the result."
   (assert (getenv "IVK_NOTES_IDS_FILE"))
   (s-trim
    (shell-command-to-string
-    (concat "notes" " generate-id"
-            " --state-file " (getenv "IVK_NOTES_IDS_FILE")
-            " --notes-file " (buffer-file-name)))))
+    (concat "notes" " generate-id " (int-to-string size)))))
 
 
 (defun ivk.notes/uuid-based-id ()
