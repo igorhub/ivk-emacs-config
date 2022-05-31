@@ -75,7 +75,7 @@
   (save-excursion
     (search-backward ivk.notes/separator nil 't)
     (end-of-line)
-    (s-trim (substring-no-properties (thing-at-point 'symbol)))))
+    (s-trim (substring-no-properties (thing-at-point 'filename)))))
 
 
 (defun ivk.notes/get-title ()
