@@ -1,0 +1,45 @@
+
+
+
+
+================================================================================ ch`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+Chunks
+:date `(ivk.time/date-string (decode-time))`
+
+.section
+Morning
+
+.pp
+...
+
+
+.section
+After walk
+
+.pp
+...
+
+
+.section
+Day
+
+.pp
+...
+
+
+.section
+Meditation
+
+.pp
+...
+
+
+.section
+Evening
+
+.pp
+...
+
+
+.topics
+chunks

@@ -8,7 +8,6 @@ Today
 :segment `(getenv "IVK_NOTES_CURRENT_SEGMENT")`
 :image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
 
-
 .pp
 ...
 
@@ -28,7 +27,8 @@ Today
 
 .list
 :subtype :summary-notes
-- $win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+- ...
+// - $win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
 
 .line
 .pp

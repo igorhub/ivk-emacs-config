@@ -1,0 +1,95 @@
+
+
+
+
+================================================================================ ag`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+AG: JC-2022-10-x
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
+
+.pp
+"$0"
+
+.pp
+LINK
+
+
+.line
+
+
+.pp
+[1.1]
+
+.pp
+Associations: $
+
+.pp
+Candidates for new notes:
+
+.line
+
+
+
+.pp
+[1.2]
+
+.pp
+Associations: $
+
+.pp
+Candidates for new notes:
+
+.line
+
+
+
+.pp
+[1.3]
+
+.pp
+Associations: $
+
+.pp
+Candidates for new notes:
+
+.line
+
+
+
+.pp
+[2.1]
+
+.pp
+Associations: $
+
+.pp
+Candidates for new notes:
+
+.line
+
+
+
+.pp
+[2.2]
+
+.pp
+Associations: $
+
+.pp
+Candidates for new notes:
+
+.line
+
+
+
+.pp
+[3.1]
+
+.pp
+Associations: $
+
+.pp
+Candidates for new notes:
+
+
+.topics
+assoc read authors.james-clear

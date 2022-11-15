@@ -1,0 +1,10 @@
+
+
+
+
+================================================================================ pr`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+Produce `(ivk.time/date-string (decode-time))`
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
+
+.list
+* ...
