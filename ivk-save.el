@@ -3,6 +3,7 @@
 (require 'ivk-save-notes-file)
 (require 'ivk-save-babashka)
 (require 'ivk-save-python)
+(require 'ivk-save-go)
 
 
 (defun ivk.save/update-emacshelper ()
@@ -15,7 +16,9 @@
           ((s-suffix? ".bb.clj" fname)
            (ivk.save/on-save-babashka))
           ((s-suffix? ".py" fname)
-           (ivk.save/on-save-python)))))
+           (ivk.save/on-save-python))
+          ((s-suffix? ".go" fname)
+           (ivk.save/on-save-go)))))
 
 
 (defun ivk/save-buffer ()
