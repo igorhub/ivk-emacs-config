@@ -21,7 +21,7 @@
   (setenv "IVK_DARKNESS" "YES"))
 
 
-(defun ivk/open-url-in-qutebrowser ()
+(defun ivk/open-url-in-primary-browser ()
   "Open the URL at point in qutebrowser."
   (interactive)
   (let ((url (thing-at-point 'url 't)))
