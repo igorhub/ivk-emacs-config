@@ -17,20 +17,32 @@ Today
 
 .list
 :subtype :summary-eng
+English:
 - ...
+.line
 
 
 .list
 :subtype :summary-consume
+Consume:
 - ...
+.line
 
 
 .list
 :subtype :summary-notes
 - ...
 // - $win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
-
 .line
+
+
+.pp
+Ref:
+.refs-list
+:filter SELF
+.line
+
+
 .pp
 $0
 
@@ -41,13 +53,13 @@ day
 
 
 
-================================================================================ win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
-Wild notes `(ivk.time/date-string (decode-time))`
-:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
+// ================================================================================ win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+// Wild notes `(ivk.time/date-string (decode-time))`
+// :owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
 
-.list
-* ...
+// .list
+// * ...
 
 
-.topics
-wild-notes
+// .topics
+// wild-notes
