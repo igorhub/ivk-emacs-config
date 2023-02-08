@@ -1,5 +1,6 @@
 (provide 'ivk-save)
 (require 'ivk-notes)
+(require 'ivk-browser-integration)
 (require 'ivk-save-notes-file)
 (require 'ivk-save-babashka)
 (require 'ivk-save-python)
@@ -18,7 +19,9 @@
           ((s-suffix? ".py" fname)
            (ivk.save/on-save-python))
           ((s-suffix? ".go" fname)
-           (ivk.save/on-save-go)))))
+           (ivk.save/on-save-go))
+          ((s-suffix? ".sql" fname)
+           (ivk/refresh-emacshelper)))))
 
 
 (defun ivk/save-buffer ()
