@@ -1,10 +1,9 @@
 (provide 'ivk-save-go)
+(require 'ivk-browser-integration)
 
 (defun ivk.save/on-save-go ()
   "Reaction on saving a Go file."
-  (start-process "whatever" nil
-                 "refresh-emacshelper.sh"
-                 (buffer-file-name))
+  (ivk/refresh-emacshelper)
   (message "Bump!"))
 
 
