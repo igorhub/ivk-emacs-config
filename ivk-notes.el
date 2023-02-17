@@ -132,6 +132,7 @@ Could be sorted by date wint SORT-BY-DATE? argument."
       (goto-char (point-max))
       (search-backward-regexp ":subtype :summary-notes" nil 't)
       (forward-paragraph)
+      (forward-line -1)
       (insert "- $" id "\n")
       (ivk/save-buffer)
       (switch-to-buffer buf))))
