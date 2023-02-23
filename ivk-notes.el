@@ -138,4 +138,16 @@ Could be sorted by date wint SORT-BY-DATE? argument."
       (switch-to-buffer buf))))
 
 
+(defun ivk.notes/tmp ()
+  "Own the current note."
+  (interactive)
+  (goto-char 0)
+  (replace-regexp ":day-circle-180" ":day-regular")
+  (goto-char 0)
+  (replace-regexp ":entry-underlined" ":entry-regular")
+  (goto-char 0)
+  (replace-regexp ":image-spec.*," "")
+  (ivk/save-buffer))
+
+
 ;;; ivk-notes.el ends here
