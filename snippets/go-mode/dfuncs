@@ -1,0 +1,12 @@
+
+var ct = func(vals ...any) { devcards.Current.Text(vals...) }
+var cm = func(vals ...any) { devcards.Current.Mono(vals...) }
+var cv = func(vals ...any) { devcards.Current.Val(vals...) }
+var cc = func(vals ...any) { devcards.Current.Mval(vals...) }
+var ca = func(vals ...any) { devcards.Current.Append(vals...) }
+var use = func(x ...any) {}
+var nofail = func(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
