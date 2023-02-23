@@ -32,7 +32,7 @@ Consume:
 .list
 :subtype :summary-notes
 - ...
-// - $win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+// - $jot`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
 .line
 
 
@@ -53,8 +53,8 @@ day
 
 
 
-// ================================================================================ win`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
-// Wild notes `(ivk.time/date-string (decode-time))`
+// ================================================================================ jot`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+// Jot `(ivk.time/date-string (decode-time))`
 // :owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
 
 // .list
@@ -62,4 +62,4 @@ day
 
 
 // .topics
-// wild-notes
+// jot
