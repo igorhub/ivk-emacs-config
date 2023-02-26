@@ -150,4 +150,31 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (ivk/save-buffer))
 
 
+(defun ivk.notes/add-to-kanban-board (status id title)
+  "Add the task to write the note onto kanban board."
+  (let ((task-title (format "write: %s" title id))
+        (description (format "id: $%s" id)))
+    (start-process "-" nil "personal-kanban" "create-task"
+                   "--title" task-title
+                   "--description" description
+                   "--status" status)))
+
+
+(defun ivk.notes/kanban-todo ()
+  "Add the task to write the note onto 'todo' board."
+  (interactive)
+  (ivk.notes/add-to-kanban-board "todo" (ivk.notes/get-id) (ivk.notes/get-title)))
+
+
+(defun ivk.notes/kanban-doing ()
+  "Add the task to write the note onto 'doing' board."
+  (interactive)
+  (ivk.notes/add-to-kanban-board "doing" (ivk.notes/get-id) (ivk.notes/get-title)))
+
+
+(defun ivk.notes/kanban-done ()
+  "Add the task to write the note onto 'done' board."
+  (interactive)
+  (ivk.notes/add-to-kanban-board "done" (ivk.notes/get-id) (ivk.notes/get-title)))
+
 ;;; ivk-notes.el ends here
