@@ -5,8 +5,17 @@ var cv = func(vals ...any) { devcards.Current.Val(vals...) }
 var cc = func(vals ...any) { devcards.Current.Mval(vals...) }
 var ca = func(vals ...any) { devcards.Current.Append(vals...) }
 var use = func(x ...any) {}
-var nofail = func(err error) {
+var must = func(err error) {
 	if err != nil {
 		panic(err)
+	}
+}
+var assert = func(ass bool, explanation ...string) {
+	if !ass {
+		msg := "Assertion has hailed"
+		if len(explanation) > 0 {
+			msg += ": " + strings.Join(explanation, " ")
+		}
+		panic(msg)
 	}
 }

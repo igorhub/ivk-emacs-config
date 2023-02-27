@@ -3,7 +3,7 @@
 
 
 ================================================================================ day`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
-Today
+Today `(ivk.time/date-string (decode-time))`
 :date `(ivk.time/date-string (decode-time))`
 :segment `(getenv "IVK_NOTES_CURRENT_SEGMENT")`
 :image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
