@@ -150,9 +150,9 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (ivk/save-buffer))
 
 
-(defun ivk.notes/add-to-kanban-board (status id title)
+(defun ivk.notes/add-to-kanban-board (act status id title)
   "Add the task to write the note onto kanban board."
-  (let ((task-title (format "write: %s" title id))
+  (let ((task-title (format "%s: %s" act title id))
         (description (format "id: $%s" id)))
     (start-process "-" nil "personal-kanban" "create-task"
                    "--title" task-title
@@ -160,21 +160,27 @@ Could be sorted by date wint SORT-BY-DATE? argument."
                    "--status" status)))
 
 
-(defun ivk.notes/kanban-todo ()
+(defun ivk.notes/kanban-write-todo ()
   "Add the task to write the note onto 'todo' board."
   (interactive)
-  (ivk.notes/add-to-kanban-board "todo" (ivk.notes/get-id) (ivk.notes/get-title)))
+  (ivk.notes/add-to-kanban-board "write" "todo" (ivk.notes/get-id) (ivk.notes/get-title)))
 
 
-(defun ivk.notes/kanban-doing ()
+(defun ivk.notes/kanban-write-doing ()
   "Add the task to write the note onto 'doing' board."
   (interactive)
-  (ivk.notes/add-to-kanban-board "doing" (ivk.notes/get-id) (ivk.notes/get-title)))
+  (ivk.notes/add-to-kanban-board "write" "doing" (ivk.notes/get-id) (ivk.notes/get-title)))
 
 
-(defun ivk.notes/kanban-done ()
+(defun ivk.notes/kanban-revise-doing ()
+  "Add the task to write the note onto 'doing' board."
+  (interactive)
+  (ivk.notes/add-to-kanban-board "revise" "doing" (ivk.notes/get-id) (ivk.notes/get-title)))
+
+
+(defun ivk.notes/kanban-write-done ()
   "Add the task to write the note onto 'done' board."
   (interactive)
-  (ivk.notes/add-to-kanban-board "done" (ivk.notes/get-id) (ivk.notes/get-title)))
+  (ivk.notes/add-to-kanban-board "write" "done" (ivk.notes/get-id) (ivk.notes/get-title)))
 
 ;;; ivk-notes.el ends here
