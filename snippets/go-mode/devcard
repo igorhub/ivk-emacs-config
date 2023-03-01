@@ -1,0 +1,5 @@
+func Devcard_$1(c *devcards.Devcard) {
+	c.Title = "$1"
+
+$0
+}
