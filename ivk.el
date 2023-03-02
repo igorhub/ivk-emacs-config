@@ -21,4 +21,15 @@
   (setenv "IVK_DARKNESS" "YES"))
 
 
+(defun ivk/kill-this-buffer ()
+  "Kills the buffer and optionally runs whatever I want it to run."
+  (interactive)
+  (let ((name (buffer-name)))
+    (cond ((s-prefix? "__pk_edit_" name)
+           (progn
+             (save-buffer)
+             (start-process "-" nil "run-personal-kanban.sh"))))
+    (kill-this-buffer)))
+
+
 ;;; ivk.el ends here
