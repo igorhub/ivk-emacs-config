@@ -122,22 +122,6 @@ Could be sorted by date wint SORT-BY-DATE? argument."
     (insert headlines)))
 
 
-(defun ivk.notes/own ()
-  "Own the current note."
-  (interactive)
-  (let ((id (ivk.notes/get-id))
-        (buf (current-buffer)))
-    (save-excursion
-      (find-file "/home/ivk/MyNotes/tv5/journal/bullcrap23.tvv")
-      (goto-char (point-max))
-      (search-backward-regexp ":subtype :summary-notes" nil 't)
-      (forward-paragraph)
-      (forward-line -1)
-      (insert "- $" id "\n")
-      (ivk/save-buffer)
-      (switch-to-buffer buf))))
-
-
 (defun ivk.notes/tmp ()
   "Own the current note."
   (interactive)
