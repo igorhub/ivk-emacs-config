@@ -167,4 +167,17 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (interactive)
   (ivk.notes/add-to-kanban-board "write" "done" (ivk.notes/get-id) (ivk.notes/get-title)))
 
+
+(defun ivk.notes/jot ()
+  "Add a jot."
+  (interactive)
+  (assert (getenv "IVK_NOTES_JOT_FILE"))
+  (find-file (getenv "IVK_NOTES_JOT_FILE"))
+  (end-of-buffer)
+  (backward-paragraph)
+  (insert "\n.line\n.pp\n\n")
+  (previous-line)
+  (evil-insert 0))
+
+
 ;;; ivk-notes.el ends here
