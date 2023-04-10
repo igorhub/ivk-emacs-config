@@ -2,7 +2,7 @@
 
 
 
-================================================================================ day`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+================================================================================= day`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
 Today ($0)
 :date `(ivk.time/date-string (decode-time))`
 :segment `(getenv "IVK_NOTES_CURRENT_SEGMENT")`
