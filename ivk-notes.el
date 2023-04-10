@@ -168,6 +168,12 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (ivk.notes/add-to-kanban-board "write" "done" (ivk.notes/get-id) (ivk.notes/get-title)))
 
 
+(defun ivk.notes/rewrite ()
+  "Rewrite the notes file in the current buffer."
+  (interactive)
+  (call-process "notes-rewrite" nil nil nil (buffer-file-name)))
+
+
 (defun ivk.notes/jot ()
   "Add a jot."
   (interactive)
