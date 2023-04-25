@@ -18,6 +18,18 @@
     (concat "notes" " generate-id " (int-to-string size)))))
 
 
+(defun ivk.notes/insert-id-3 ()
+  "Generate and insert a three-letter ID."
+  (interactive)
+  (insert (ivk.notes/create-id 3)))
+
+
+(defun ivk.notes/insert-id-4 ()
+  "Generate and insert a four-letter ID."
+  (interactive)
+  (insert (ivk.notes/create-id 4)))
+
+
 (defun ivk.notes/uuid-based-id ()
   "Create new note id (with `uuidgen')."
   (concat "u" (s-replace "-" "" (s-trim (shell-command-to-string "uuidgen")))))
