@@ -1,9 +1,9 @@
 
-var ct = func(vals ...any) { devcards.Current.Text(vals...) }
-var cm = func(vals ...any) { devcards.Current.Mono(vals...) }
-var cv = func(vals ...any) { devcards.Current.Val(vals...) }
-var cc = func(vals ...any) { devcards.Current.Mval(vals...) }
-var ca = func(vals ...any) { devcards.Current.Append(vals...) }
+var ct = func(vals ...any) { devcard.Current.Text(vals...) }
+var cm = func(vals ...any) { devcard.Current.Mono(vals...) }
+var cv = func(vals ...any) { devcard.Current.Val(vals...) }
+var cc = func(vals ...any) { devcard.Current.Mval(vals...) }
+var ca = func(vals ...any) { devcard.Current.Append(vals...) }
 var use = func(x ...any) {}
 var must = func(err error) {
 	if err != nil {

@@ -2,7 +2,7 @@
 
 
 
-================================================================================ jot`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
+================================================================================= jot`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
 Jot `(ivk.time/date-string (decode-time))`
 :owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
 
