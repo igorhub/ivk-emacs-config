@@ -14,7 +14,7 @@
   "Return the devcard at point."
   (save-excursion
     (let ((package (ivk.devcards/current-package)))
-      (search-backward-regexp "func +\\([a-zA-Z0-9_]+\\).*\\*devcards.Devcard) {")
+      (search-backward-regexp "func +\\([a-zA-Z0-9_]+\\).*\\*devcard.Devcard) {")
       (concat package "." (buffer-substring-no-properties (match-beginning 1) (match-end 1))))))
 
 
