@@ -2,6 +2,7 @@
 
 (require 'ivk-basic)
 (require 'ivk-clojure)
+(require 'ivk-devcards)
 (require 'ivk-git)
 (require 'ivk-ivy)
 (require 'ivk-notes)
