@@ -7,6 +7,13 @@
                  (buffer-file-name)))
 
 
+(defun ivk/open-in-emacshelper (url)
+  "Open the URL in emacshelper."
+  (start-process "whatever" nil
+                 "open-url-in-emacshelper.sh"
+                 url))
+
+
 (defun ivk/open-url-in-primary-browser ()
   "Open the URL at point in qutebrowser."
   (interactive)

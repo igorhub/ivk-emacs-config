@@ -18,6 +18,8 @@
            (ivk.save/on-save-babashka))
           ((s-suffix? ".py" fname)
            (ivk.save/on-save-python))
+          ((s-suffix? ".devcard.go" fname)
+           (ivk.save/on-save-go-devcard))
           ((s-suffix? ".go" fname)
            (ivk.save/on-save-go))
           ((s-suffix? ".sql" fname)
