@@ -1,4 +1,4 @@
-func $1(c *devcard.Devcard) {
+func Devcard_$1(c *devcard.Devcard) {
 	c.Title = "$1"
 
 $0
