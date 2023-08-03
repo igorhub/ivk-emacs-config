@@ -5,17 +5,20 @@ var cv = func(vals ...any) { devcard.Current.Val(vals...) }
 var cc = func(vals ...any) { devcard.Current.Mval(vals...) }
 var ca = func(vals ...any) { devcard.Current.Append(vals...) }
 var use = func(x ...any) {}
-var must = func(err error) {
+func must0(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
-var assert = func(ass bool, explanation ...string) {
-	if !ass {
-		msg := "Assertion has hailed"
-		if len(explanation) > 0 {
-			msg += ": " + strings.Join(explanation, " ")
-		}
-		panic(msg)
+func must[T any](x T, err error) T {
+	if err != nil {
+		panic(err)
 	}
+	return x
 }
+func assert(cond bool, format string, args ...any) {
+    if !cond {
+        panic(fmt.Sprintf(format, args...))
+    }
+}
+var format = fmt.Sprintf
