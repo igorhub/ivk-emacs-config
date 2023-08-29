@@ -64,7 +64,7 @@
   (interactive)
   (let* ((cmd (format "ivk-devcc make-url --devcards-file '%s' 2>/tmp/devcc-make-url-stderr" (buffer-file-name)))
          (url (s-trim (shell-command-to-string cmd))))
-      (message url)
+      (message cmd)
     (when (not (string= url ""))
       (ivk/open-in-emacshelper url))))
 
@@ -74,7 +74,7 @@
   (interactive)
   (let* ((cmd (format "ivk-devcc make-url --devcards-file '%s' --keep-scaffolding 2>/tmp/devcc-make-url-stderr" (buffer-file-name)))
          (url (s-trim (shell-command-to-string cmd))))
-      (message url)
+      (message cmd)
     (when (not (string= url ""))
       (ivk/open-in-emacshelper url))))
 
