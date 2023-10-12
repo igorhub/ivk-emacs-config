@@ -2,6 +2,7 @@
 
 (defun ivk/refresh-emacshelper ()
   "Reaction on saving a Go file."
+  (interactive)
   (start-process "whatever" nil
                  "refresh-emacshelper.sh"
                  (buffer-file-name)))
