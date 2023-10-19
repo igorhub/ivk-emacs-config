@@ -8,11 +8,7 @@ Today ($0)
 :segment `(getenv "IVK_NOTES_CURRENT_SEGMENT")`
 :image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
 
-.pp
-...
-
-_What's so special about it?_
-
+`(ivk/slurp "~/daynote-head")`
 
 
 .gras-cutoff
