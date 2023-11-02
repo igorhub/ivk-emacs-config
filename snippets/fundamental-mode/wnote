@@ -1,0 +1,28 @@
+
+
+
+
+================================================================================ `(ivk.notes/create-id 4)`
+Segment-X impressions
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
+
+.list
+* ...
+
+
+.topics
+impression
+
+
+
+
+================================================================================ `(ivk.notes/create-id 4)`
+Segment-X review
+:owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
+
+.pp
+$todo
+
+
+.topics
+review
