@@ -113,7 +113,7 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (interactive)
   (let ((id (ivk.notes/lookup nil)))
     (when (not (string= id ""))
-      (insert (s-replace "." "/" id))
+      (insert id)
       (ivk.notes/open-in-emacshelper id))))
 
 
