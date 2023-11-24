@@ -6,7 +6,7 @@
 Today ($0)
 :date `(ivk.time/date-string (decode-time))`
 :segment `(getenv "IVK_NOTES_CURRENT_SEGMENT")`
-:image `(s-trim (ivk/slurp "/tmp/bg-of-the-day.txt"))`
+:image `(s-trim (ivk/slurp "/home/ivk/tmp/bg-of-the-day.txt"))`
 
 `(ivk/slurp "~/daynote-head")`
 
