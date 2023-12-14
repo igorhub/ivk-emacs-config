@@ -62,7 +62,9 @@
 (defun ivk.devcards/run-devcard-under-cursor ()
   "Display devcard under cursor in emacshelper."
   (interactive)
-  (let* ((cmd (format "ivk-devcc make-url --devcards-file '%s' 2>/tmp/devcc-make-url-stderr" (buffer-file-name)))
+  (let* ((cmd (format "ivk-devcc make-url --devcards-file '%s' --line %d 2>/tmp/devcc-make-url-stderr"
+                      (buffer-file-name)
+                      (line-number-at-pos (point))))
          (url (s-trim (shell-command-to-string cmd))))
       (message cmd)
     (when (not (string= url ""))
@@ -72,7 +74,9 @@
 (defun ivk.devcards/run-devcard-under-cursor--keep-scaffolding ()
   "Display devcard under cursor in emacshelper, keep scaffolding."
   (interactive)
-  (let* ((cmd (format "ivk-devcc make-url --devcards-file '%s' --keep-scaffolding 2>/tmp/devcc-make-url-stderr" (buffer-file-name)))
+  (let* ((cmd (format "ivk-devcc make-url --devcards-file '%s' --line %d --keep-scaffolding 2>/tmp/devcc-make-url-stderr"
+                      (buffer-file-name)
+                      (line-number-at-pos (point))))
          (url (s-trim (shell-command-to-string cmd))))
       (message cmd)
     (when (not (string= url ""))
