@@ -6,6 +6,7 @@
 (require 'ivk-git)
 (require 'ivk-ivy)
 (require 'ivk-notes)
+(require 'ivk-os-integration)
 (require 'ivk-ru-dvorak)
 (require 'ivk-save)
 (require 'ivk-startup-screen)
