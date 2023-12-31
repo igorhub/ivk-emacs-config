@@ -91,13 +91,11 @@ Example: {r/200617j \"Whatever\"}."
   (kill-new (format "{r/%s \"%s\"}" (ivk.notes/get-id) (ivk.notes/get-title))))
 
 
-(defun ivk.notes/lookup (sort-by-date?)
+(defun ivk.notes/lookup ()
   "Lookup a note with rxvt/fzf.
 Could be sorted by date wint SORT-BY-DATE? argument."
   (s-trim
-   (shell-command-to-string (if sort-by-date?
-                                "notes lookup --print+"
-                              "notes lookup --print"))))
+   (shell-command-to-string "ivk-notes lookup print")))
 
 
 (defun ivk.notes/open-in-emacshelper (id)
@@ -111,18 +109,10 @@ Could be sorted by date wint SORT-BY-DATE? argument."
 (defun ivk.notes/insert-id ()
   "Lookup a note, insert its id, and open it in emacshelper."
   (interactive)
-  (let ((id (ivk.notes/lookup nil)))
+  (let ((id (ivk.notes/lookup)))
     (when (not (string= id ""))
       (insert id)
       (ivk.notes/open-in-emacshelper id))))
-
-
-(defun ivk.notes/insert-id--sorted-by-date ()
-  "Lookup a note (sorted by date), insert its id, and open it in emacshelper."
-  (interactive)
-  (let ((id (ivk.notes/lookup 't)))
-    (insert id)
-    (ivk.notes/open-in-emacshelper id)))
 
 
 (defun ivk.notes/headlines ()
