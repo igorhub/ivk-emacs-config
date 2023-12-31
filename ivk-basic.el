@@ -9,6 +9,15 @@
   (message buffer-file-name))
 
 
+;; From https://emacs.stackexchange.com/questions/696/get-content-of-a-buffer
+(defun ivk/buffer-content-string (buffer)
+  "Return the content of the buffer as a string."
+  (with-current-buffer buffer
+    (save-restriction
+      (widen)
+      (buffer-substring-no-properties (point-min) (point-max)))))
+
+
 (defun ivk/switch-to-previous-buffer ()
   "Switch to previous buffer.
 

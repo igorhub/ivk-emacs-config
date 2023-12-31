@@ -1,9 +1,10 @@
 (provide 'ivk-notes)
+(require 'cl)
+(require 'dash)
+(require 's)
+(require 'ivk-basic)
 (require 'ivk-time)
 (require 'ivk-util)
-(require 's)
-(require 'dash)
-(require 'cl)
 
 
 (defvar ivk.notes/separator
@@ -186,6 +187,26 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (insert "\n.line\n.pp\n\n")
   (previous-line)
   (evil-insert 0))
+
+
+(defun ivk.notes/format ()
+  (cond ((s-suffix? ".ino" (buffer-name)) "ino")
+        ((s-suffix? ".eno" (buffer-name)) "eno")
+        (:else "")))
+
+
+(defun ivk.notes/import ()
+  "Import and rewrite. Run on before-save-hook."
+  (interactive)
+  (when (not (eq (ivk.notes/format) ""))
+    (let* ((tmp (make-temp-file "ivk-notes-import-" nil "" (ivk/buffer-content-string (current-buffer))))
+           (status (call-process-shell-command (concat "ivk-notes import " (ivk.notes/format)) tmp "*ivk-notes-out*")))
+      (if (= status 0)
+          (save-excursion
+            (replace-buffer-contents "*ivk-notes-out*"))
+        (message (ivk/buffer-content-string "*ivk-notes-out*")))
+      (kill-buffer "*ivk-notes-out*")
+      (delete-file tmp))))
 
 
 ;;; ivk-notes.el ends here
