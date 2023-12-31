@@ -27,10 +27,10 @@
   "Kills the buffer and optionally runs whatever I want it to run."
   (interactive)
   (let ((name (buffer-name)))
-    (cond ((s-prefix? "__pk_edit_" name)
-           (progn
-             (save-buffer)
-             (start-process "-" nil "run-personal-kanban.sh"))))
+    (cond ((s-prefix? "__pk_edit_" name) (progn
+                                           (save-buffer)
+                                           (start-process "-" nil "run-personal-kanban.sh")))
+           ((s-prefix? "__autodelete__" name) (delete-file (buffer-name))))
     (kill-this-buffer)))
 
 
