@@ -35,6 +35,8 @@
 Can't use the standard hook, for I need to generate the page even
 if the buffer is already saved."
   (interactive)
+  (when (not (eq (ivk.notes/format) ""))
+    (ivk.notes/import))
   (save-buffer)
   (ivk.save/update-emacshelper))
 
