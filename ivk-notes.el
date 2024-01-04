@@ -209,4 +209,16 @@ Could be sorted by date wint SORT-BY-DATE? argument."
       (delete-file tmp))))
 
 
+(setq ivk.notes/highlights
+      '(("^\\.pp.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.ino.*\\|^\\.item.*\\|^\\.cont.*" . 'font-lock-comment-delimiter-face)
+        ("^//.*" . 'font-lock-comment-delimiter-face)
+        ("^\\:[a-z].*" . 'font-lock-doc-face)))
+
+
+(define-derived-mode eno-mode text-mode "eno"
+  "Major mode for editing .eno notes."
+  (setq font-lock-defaults '(ivk.notes/highlights)))
+
+
 ;;; ivk-notes.el ends here
