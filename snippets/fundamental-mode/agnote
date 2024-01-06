@@ -3,7 +3,7 @@
 
 
 ================================================================================ ag`(s-replace "-" "" (ivk.time/date-string (decode-time)))`
-AG: JC-2023-08-x
+AG: JC-2023-11-x
 :owner `(concat "day" (s-replace "-" "" (ivk.time/date-string (decode-time))))`
 
 .pp

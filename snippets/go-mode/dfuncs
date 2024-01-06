@@ -18,7 +18,7 @@ func must[T any](x T, err error) T {
 }
 func assert(cond bool, format string, args ...any) {
     if !cond {
-        panic(fmt.Sprintf(format, args...))
+        panic(fmt.Errorf(format, args...))
     }
 }
 var format = fmt.Sprintf
