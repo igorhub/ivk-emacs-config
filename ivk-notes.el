@@ -101,10 +101,7 @@ Could be sorted by date wint SORT-BY-DATE? argument."
 
 (defun ivk.notes/open-in-emacshelper (id)
   "Open note ID in emacshelper."
-  (call-process "notes" nil nil nil
-                "open"
-                "--browser" "emacshelper"
-                "--id" id))
+  (call-process "ivk-notes" nil nil nil "open" id))
 
 
 (defun ivk.notes/insert-id ()
@@ -112,7 +109,7 @@ Could be sorted by date wint SORT-BY-DATE? argument."
   (interactive)
   (let ((id (ivk.notes/lookup)))
     (when (not (string= id ""))
-      (insert id)
+      (insert "[$" id "]")
       (ivk.notes/open-in-emacshelper id))))
 
 
@@ -210,10 +207,23 @@ Could be sorted by date wint SORT-BY-DATE? argument."
 
 
 (setq ivk.notes/highlights
-      '(("^\\.pp.*" . 'font-lock-comment-delimiter-face)
-        ("^\\.ino.*\\|^\\.item.*\\|^\\.cont.*" . 'font-lock-comment-delimiter-face)
+      '(("^\\.ino.*\\|^\\.item.*\\|^\\.cont.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.pp.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.list.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.quote.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.code.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.asciidoc.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.html.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.line.*" . 'font-lock-builtin-face)
+        ("^\\.section.*" . 'font-lock-string-face)
+        ("^\\.verbatim.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.topics.*" . 'font-lock-comment-delimiter-face)
+        ("^\\.backreferences.*" . 'font-lock-string-face)
+        ("^\\.subs" . 'font-lock-comment-delimiter-face)
+        ("^\\.gras-cutoff.*" . 'font-lock-builtin-face)
         ("^//.*" . 'font-lock-comment-delimiter-face)
-        ("^\\:[a-z].*" . 'font-lock-doc-face)))
+        ("^\\:[a-z].*" . 'font-lock-doc-face)
+        ("\\$[-.a-zA-Z0-9]+" . 'font-lock-comment-delimiter-face)))
 
 
 (define-derived-mode eno-mode text-mode "eno"
