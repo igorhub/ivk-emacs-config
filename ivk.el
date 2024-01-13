@@ -26,12 +26,8 @@
 (defun ivk/kill-this-buffer ()
   "Kills the buffer and optionally runs whatever I want it to run."
   (interactive)
-  (let ((name (buffer-name))
-        (parent (file-name-base (directory-file-name (file-name-directory (buffer-file-name))))))
-    (cond ((s-prefix? "__pk_edit_" name) (progn
-                                           (save-buffer)
-                                           (start-process "-" nil "run-personal-kanban.sh")))
-           ((s-equals? "-autodelete" parent) (delete-file (buffer-name))))
+  (let ((parent (file-name-base (directory-file-name (file-name-directory (buffer-file-name))))))
+    (when (s-equals? "-autodelete" parent) (delete-file (buffer-name)))
     (kill-this-buffer)))
 
 
