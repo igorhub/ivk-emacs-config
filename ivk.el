@@ -26,9 +26,9 @@
 (defun ivk/kill-this-buffer ()
   "Kills the buffer and optionally runs whatever I want it to run."
   (interactive)
-  (let ((parent (file-name-base (directory-file-name (file-name-directory (buffer-file-name))))))
-    (when (s-equals? "-autodelete" parent) (delete-file (buffer-name)))
-    (kill-this-buffer)))
-
+  (when (buffer-file-name)
+    (let ((parent (file-name-base (directory-file-name (file-name-directory (buffer-file-name))))))
+      (when (s-equals? "-autodelete" parent) (delete-file (buffer-name)))))
+  (kill-this-buffer))
 
 ;;; ivk.el ends here
