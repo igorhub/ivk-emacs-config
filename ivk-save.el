@@ -21,7 +21,7 @@
           ((and (s-prefix? "devcard." (file-name-base fname))
                 (s-suffix? ".go" fname))
            (ivk.save/on-save-go-devcard))
-          ((and (s-prefix? "⚙ devcard" (file-name-base fname))
+          ((and (s-prefix? "⚙ " (file-name-base fname))
                 (s-suffix? ".go" fname))
            (ivk.save/on-save-go-devcard))
           ((s-suffix? ".devcard.go" fname)
