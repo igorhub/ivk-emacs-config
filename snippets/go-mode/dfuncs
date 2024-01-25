@@ -1,10 +1,13 @@
 
-var ct = func(vals ...any) { devcard.Current.Text(vals...) }
-var cm = func(vals ...any) { devcard.Current.Mono(vals...) }
-var cv = func(vals ...any) { devcard.Current.Val(vals...) }
-var cc = func(vals ...any) { devcard.Current.Mval(vals...) }
-var ca = func(vals ...any) { devcard.Current.Append(vals...) }
-var use = func(x ...any) {}
+var (
+	cdc = func() *devcard.Devcard { return devcard.Current }
+	ct  = func(vals ...any) { devcard.Current.Text(vals...) }
+	cm  = func(vals ...any) { devcard.Current.Mono(vals...) }
+	cv  = func(vals ...any) { devcard.Current.Val(vals...) }
+	cc  = func(vals ...any) { devcard.Current.Mval(vals...) }
+	ca  = func(vals ...any) { devcard.Current.Append(vals...) }
+	use = func(x ...any) {}
+)
 func must0(err error) {
 	if err != nil {
 		panic(err)
