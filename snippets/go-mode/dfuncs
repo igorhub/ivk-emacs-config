@@ -1,27 +1,28 @@
 
-var (
-	cdc = func() *devcard.Devcard { return devcard.Current }
-	ct  = func(vals ...any) { devcard.Current.Text(vals...) }
-	cm  = func(vals ...any) { devcard.Current.Mono(vals...) }
-	cv  = func(vals ...any) { devcard.Current.Val(vals...) }
-	cc  = func(vals ...any) { devcard.Current.Mval(vals...) }
-	ca  = func(vals ...any) { devcard.Current.Append(vals...) }
-	use = func(x ...any) {}
-)
-func must0(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
 func must[T any](x T, err error) T {
 	if err != nil {
 		panic(err)
 	}
 	return x
 }
-func assert(cond bool, format string, args ...any) {
-    if !cond {
-        panic(fmt.Errorf(format, args...))
-    }
-}
-var format = fmt.Sprintf
+
+var (
+	cdc   = func() *devcard.Devcard { return devcard.Current }
+	ct    = func(vals ...any) { devcard.Current.Text(vals...) }
+	cm    = func(vals ...any) { devcard.Current.Mono(vals...) }
+	cv    = func(vals ...any) { devcard.Current.Val(vals...) }
+	cc    = func(vals ...any) { devcard.Current.Mval(vals...) }
+	ca    = func(vals ...any) { devcard.Current.Append(vals...) }
+	use   = func(x ...any) {}
+	must0 = func(err error) {
+		if err != nil {
+			panic(err)
+		}
+	}
+	assert = func(cond bool, format string, args ...any) {
+		if !cond {
+			panic(fmt.Errorf("assertion failed: "+format, args...))
+		}
+	}
+	format = fmt.Sprintf
+)
