@@ -1,5 +1,5 @@
 func Devcard_$1(c *devcard.Devcard) {
-	c.Title = "$1"
+	c.SetTitle("$1")
 
 $0
 }
