@@ -86,7 +86,7 @@
 (defun ivk.devcards/new (name)
   "Create new devcards file in the current directory"
   (interactive "sName: ")
-  (let ((filename (concat "⚙ devcard."name ".go"))
+  (let ((filename (concat "♠ devcard."name ".go"))
         (parent (file-name-base (directory-file-name (file-name-directory (buffer-file-name))))))
     (shell-command (format "echo package %s > \"%s\"" parent filename))
     (find-file filename)))
