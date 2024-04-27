@@ -8,10 +8,10 @@ func must[T any](x T, err error) T {
 
 var (
 	cdc   = func() *devcard.Devcard { return devcard.Current }
-	ct    = func(vals ...any) { devcard.Current.Text(vals...) }
+	ct    = func(vals ...any) { devcard.Current.Md(vals...) }
 	cm    = func(vals ...any) { devcard.Current.Mono(vals...) }
 	cv    = func(vals ...any) { devcard.Current.Val(vals...) }
-	cc    = func(vals ...any) { devcard.Current.Mval(vals...) }
+	cc    = func(vals ...any) { devcard.Current.Aval(vals...) }
 	ca    = func(vals ...any) { devcard.Current.Append(vals...) }
 	use   = func(x ...any) {}
 	must0 = func(err error) {
