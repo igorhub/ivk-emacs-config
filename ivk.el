@@ -9,6 +9,7 @@
 (require 'ivk-os-integration)
 (require 'ivk-ru-dvorak)
 (require 'ivk-save)
+(require 'ivk-sql)
 (require 'ivk-startup-screen)
 (require 'ivk-time)
 (require 'ivk-tmux)

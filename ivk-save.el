@@ -1,10 +1,11 @@
 (provide 'ivk-save)
 (require 'ivk-notes)
 (require 'ivk-browser-integration)
-(require 'ivk-save-notes-file)
 (require 'ivk-save-babashka)
-(require 'ivk-save-python)
 (require 'ivk-save-go)
+(require 'ivk-save-notes-file)
+(require 'ivk-save-python)
+(require 'ivk-save-sql)
 
 
 (defun ivk.save/update-emacshelper ()
@@ -16,6 +17,8 @@
            (ivk.save/on-save-tv5))
           ((s-suffix? ".bb.clj" fname)
            (ivk.save/on-save-babashka))
+          ((s-suffix? ".sql" fname)
+           (ivk.save/on-save-sql))
           ((s-suffix? ".py" fname)
            (ivk.save/on-save-python)))))
 
